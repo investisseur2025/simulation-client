@@ -42,7 +42,16 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
 <option>🇩🇴 République dominicaine</option>
 </select>
 <label>Montant à recevoir (HTG)</label>
-<input id="montant" type="number" min="60000" max="1100000" required placeholder="60 000 à 1 100 000">
+
+<input
+  id="montant"
+  type="number"
+  min="60000"
+  max="1100000"
+  required
+  placeholder="60 000 à 1 100 000"
+>
+
 <button type="submit" id="envoyer">Envoyer</button>
 </form>
 <div id="resultat" role="status" aria-live="polite"></div>
@@ -56,6 +65,7 @@ form.addEventListener("submit",function(e){
  e.preventDefault();
  clearInterval(intervalle);
  bouton.disabled=true;
+ document.getElementById("montant").readOnly = true;
  let progression=1;
  resultat.innerHTML=`
  <p>Transaction en cours : <strong id="pourcentage">1 %</strong></p>
