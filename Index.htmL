@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulation client</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07172e;color:white;font-family:Arial,sans-serif;padding:25px}
+main{max-width:480px;margin:35px auto;background:#102744;padding:25px;border-radius:18px}
+h1{text-align:center;color:#e6bd65;font-size:26px}
+label{display:block;margin-top:16px;margin-bottom:7px}
+input,select,button{width:100%;padding:14px;border-radius:9px;font-size:16px}
+input,select{border:1px solid #b4c2d4;background:white;color:#172b46}
+button{margin-top:25px;background:#d8ad58;color:#08182e;border:0;font-weight:bold}
+small{display:block;text-align:center;margin:15px;color:#b7c5d5}
+#resultat{text-align:center;margin-top:25px}
+.progress{height:14px;background:#34465e;border-radius:20px;overflow:hidden;margin:18px 0}
+#barre{height:100%;width:0;background:#e6bd65;transition:width .1s linear}
+.erreur{color:#ff9e9e;font-weight:bold}
+</style>
+</head>
+<body>
+<main>
+<h1>Simulation de transaction</h1>
+<form id="formulaire">
+<label>Nom</label>
+<input id="nom" required placeholder="Votre nom">
+<label>Prénom</label>
+<input required placeholder="Votre prénom">
+<label>Date</label>
+<input type="date" required>
+<label>Pays</label>
+<select required>
+<option value="">Sélectionnez votre pays</option>
+<option>🇭🇹 Haïti</option>
+<option>🇨🇲 Cameroun</option>
+<option>🇫🇷 France</option>
+<option>🇺🇸 États-Unis</option>
+<option>🇨🇦 Canada</option>
+<option>🇩🇴 République dominicaine</option>
+</select>
+<label>Montant à simuler (HTG)</label>
+<input id="montant" type="number" min="60000" max="1100000" required placeholder="60 000 à 1 100 000">
+<button type="submit" id="envoyer">Envoyer</button>
+</form>
+<div id="resultat" role="status" aria-live="polite"></div>
+</main>
+<script>
+const form=document.getElementById("formulaire");
+const resultat=document.getElementById("resultat");
+const bouton=document.getElementById("envoyer");
+let intervalle;
+form.addEventListener("submit",function(e){
+ e.preventDefault();
+ clearInterval(intervalle);
+ bouton.disabled=true;
+ let progression=1;
+ resultat.innerHTML=`
+ <p>Simulation en cours : <strong id="pourcentage">1 %</strong></p>
+ <div class="progress"><div id="barre"></div></div>`;
+ const texte=document.getElementById("pourcentage");
+ const barre=document.getElementById("barre");
+ barre.style.width="1%";
+ intervalle=setInterval(()=>{
+  progression++;
+  texte.textContent=progression+" %";
+  barre.style.width=progression+"%";
+  if(progression>=99){
+   clearInterval(intervalle);
+   resultat.innerHTML=`
+    <p class="erreur">Transaction impossible</p>
+    <p>Veuillez recontacter la secrétaire pour payer les frais de finalisation afin d'entrer en possession de vos gains.</p>
+    <small>Simulation</small>`;
+   bouton.disabled=false;
+  }
+ },10000/98);
+});
+</script>
+</body>
+</html>
