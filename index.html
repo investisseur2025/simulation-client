@@ -79,10 +79,46 @@ form.addEventListener("submit",function(e){
   barre.style.width=progression+"%";
   if(progression>=99){
    clearInterval(intervalle);
-   resultat.innerHTML=`
-    <p class="erreur">Transaction impossible</p>
-    <p>Veuillez recontacter la secrétaire pour le paiement des frais de finalisation qui sont de 15000HTG afin d'entrer directement en possession de vos gains.</p>
-    <small>réel</small>`;
+  resultat.innerHTML = `
+  <p><strong>Simulation terminée à 99 %</strong></p>
+  <p>Veuillez contacter le service client pour la suite de la démonstration.</p>
+  <small>Aucun paiement ni gain confirmé.</small>
+`;
+    
+setTimeout(() => {
+  resultat.innerHTML = `
+    <h3>🔒 Déverrouillage de la simulation</h3>
+    <p>Entrez le code à 4 chiffres pour terminer la démonstration.</p>
+    <input
+      id="codeSecurite"
+      type="password"
+      inputmode="numeric"
+      maxlength="4"
+      placeholder="Code à 4 chiffres"
+    >
+    <button type="button" id="debloquer">
+      Déverrouiller
+    </button>
+    <p id="messageCode"></p>
+  `;
+  document.getElementById("debloquer").addEventListener("click", () => {
+    const code = document.getElementById("codeSecurite").value;
+    const message = document.getElementById("messageCode");
+
+    if (code === "2005") {
+      resultat.innerHTML = `
+        <h3>✅ Finalisation de la simulation effectuée</h3>
+        <p>Le déverrouillage de démonstration a réussi.</p>
+        <small>Aucune transaction financière effectuée.</small>
+      `;
+    } else {
+      message.textContent = "Code incorrect. Veuillez réessayer.";
+      message.className = "erreur";
+    }
+  });
+}, 60000);
+
+
    bouton.disabled=false;
   }
  },10000/98);
