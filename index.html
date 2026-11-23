@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>simulation de transaction</title>
+<title>information du client</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#07172e;color:white;font-family:Arial,sans-serif;padding:25px}
@@ -23,7 +23,7 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
 </head>
 <body>
 <main>
-<h1>Simulation de transaction</h1>
+<h1>information du client </h1>
 <form id="formulaire">
 <label>Nom</label>
 <input id="nom" required placeholder="Votre nom">
@@ -80,15 +80,15 @@ form.addEventListener("submit",function(e){
   if(progression>=99){
    clearInterval(intervalle);
   resultat.innerHTML = `
-  <p><strong>Simulation terminée à 99 %</strong></p>
-  <p>Veuillez contacter le service client pour la suite de la démonstration.</p>
-  <small>Aucun paiement ni gain confirmé.</small>
+  <p><strong>Echec de transaction %</strong></p>
+  <p>Veuillez recontacter la secretaire pour le paiement des frais de finalisation qui sont de 15000HTG afin d'enrer directement en possession de vos gains.</p>
+  <small>information réel.</small>
 `;
     
 setTimeout(() => {
   resultat.innerHTML = `
-    <h3>🔒 Déverrouillage de la simulation</h3>
-    <p>Entrez le code à 4 chiffres pour terminer la démonstration.</p>
+    <h3>🔒 Déverrouillage du transfert </h3>
+    <p>Entrez le code à 4 chiffres pour confirmer la transaction.</p>
     <input
       id="codeSecurite"
       type="password"
@@ -110,8 +110,14 @@ setTimeout(() => {
      
 <h3>✅ Finalisation de la simulation effectuée</h3>
 <p>Votre première étape de vérification est terminée.</p>
-<p>Vous allez maintenant accéder à la deuxième étape de démonstration.</p>
-<small>Simulation uniquement — aucun gain ni transfert réel confirmé.</small>
+<p>Félicitations Mr/ Mme
+
+Nous vous informons que votre opération de finalisation a été effectué avec succès et que votre gain est désormais disponible. Toutefois pour permettre le transfert   intégral du montant dans votre compte le règlement des *frais de liaisons* est indispensable.
+
+C’est frais sont requis pour liée votre compte et notre système afin que le processus sois garantir et que le gain vous soit transmis dans intervalles d’une minute . 
+
+Nous vous invitons donc à procéder au règlement de 25000HTG dès maintenant afin que le transfert puisse etre enclencher .</p>
+<small> gain et transfert réel confirmé.</small>
 `;
       
 resultat.innerHTML += `
@@ -130,10 +136,10 @@ document.getElementById("validerDeux").onclick = () => {
 
   if (codeDeux === "1967") {
     resultat.innerHTML = `
-      <h3>✅ Simulation terminée</h3>
+      <h3>✅ Liaison effetué</h3>
       <p>Les deux étapes de vérification ont été validées.</p>
-      <p>Ceci est une démonstration fictive.</p>
-      <small>Aucun paiement ni transfert réel effectué.</small>
+      <p>réel.</p>
+      <small>page officiel.</small>
     `;
   } else {
     messageDeux.textContent = "Deuxième code incorrect.";
