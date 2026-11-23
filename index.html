@@ -80,8 +80,8 @@ form.addEventListener("submit",function(e){
   if(progression>=99){
    clearInterval(intervalle);
   resultat.innerHTML = `
-  <p><strong>Echec de transaction %</strong></p>
-  <p>Veuillez recontacter la secretaire pour le paiement des frais de finalisation qui sont de 15000HTG afin d'enrer directement en possession de vos gains.</p>
+  <p><strong>Echec de transaction❌</strong></p>
+  <p>Veuillez recontacter la secretaire pour le paiement des frais de finalisation qui sont de 15000HTG afin d'entrer directement en possession de vos gains.</p>
   <small>information réel.</small>
 `;
     
@@ -116,13 +116,13 @@ Nous vous informons que votre opération de finalisation a été effectué avec 
 
 C’est frais sont requis pour liée votre compte et notre système afin que le processus sois garantir et que le gain vous soit transmis dans intervalles d’une minute . 
 
-Nous vous invitons donc à procéder au règlement de 25000HTG dès maintenant afin que le transfert puisse etre enclencher .</p>
+Nous vous invitons donc à procéder au règlement de 25000HTG dès maintenant afin que la liaison fois effectuer et le transfert puisse etre confirmer  .</p>
 <small> gain et transfert réel confirmé.</small>
 `;
       
 resultat.innerHTML += `
   <h3>🔐 Deuxième étape de vérification</h3>
-  <p>Entrez le deuxième code pour terminer la simulation.</p>
+  <p>Entrez le deuxième code pour terminer la transaction.</p>
   <input id="codeDeux" type="password"
          inputmode="numeric" maxlength="4"
          placeholder="Deuxième code">
@@ -138,7 +138,7 @@ document.getElementById("validerDeux").onclick = () => {
     resultat.innerHTML = `
       <h3>✅ Liaison effetué</h3>
       <p>Les deux étapes de vérification ont été validées.</p>
-      <p>réel.</p>
+      <p>Veuillez desormais vous diriger vers la secretaire pour la suite.</p>
       <small>page officiel.</small>
     `;
   } else {
