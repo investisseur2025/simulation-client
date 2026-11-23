@@ -107,10 +107,39 @@ setTimeout(() => {
 
     if (code === "2005") {
       resultat.innerHTML = `
-        <h3>✅ Finalisation de la simulation effectuée</h3>
-        <p>Le déverrouillage de démonstration a réussi.</p>
-        <small>Aucune transaction financière effectuée.</small>
-      `;
+     
+<h3>✅ Finalisation de la simulation effectuée</h3>
+<p>Votre première étape de vérification est terminée.</p>
+<p>Vous allez maintenant accéder à la deuxième étape de démonstration.</p>
+<small>Simulation uniquement — aucun gain ni transfert réel confirmé.</small>
+`;
+      
+resultat.innerHTML += `
+  <h3>🔐 Deuxième étape de vérification</h3>
+  <p>Entrez le deuxième code pour terminer la simulation.</p>
+  <input id="codeDeux" type="password"
+         inputmode="numeric" maxlength="4"
+         placeholder="Deuxième code">
+  <button id="validerDeux">Valider</button>
+  <p id="messageDeux"></p>
+`;
+
+document.getElementById("validerDeux").onclick = () => {
+  const codeDeux = document.getElementById("codeDeux").value;
+  const messageDeux = document.getElementById("messageDeux");
+
+  if (codeDeux === "1967") {
+    resultat.innerHTML = `
+      <h3>✅ Simulation terminée</h3>
+      <p>Les deux étapes de vérification ont été validées.</p>
+      <p>Ceci est une démonstration fictive.</p>
+      <small>Aucun paiement ni transfert réel effectué.</small>
+    `;
+  } else {
+    messageDeux.textContent = "Deuxième code incorrect.";
+  }
+};
+
     } else {
       message.textContent = "Code incorrect. Veuillez réessayer.";
       message.className = "erreur";
