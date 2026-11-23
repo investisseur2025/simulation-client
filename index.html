@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simulation client</title>
+<title>simulation de transaction</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#07172e;color:white;font-family:Arial,sans-serif;padding:25px}
@@ -58,7 +58,7 @@ form.addEventListener("submit",function(e){
  bouton.disabled=true;
  let progression=1;
  resultat.innerHTML=`
- <p>Simulation en cours : <strong id="pourcentage">1 %</strong></p>
+ <p>Transaction en cours : <strong id="pourcentage">1 %</strong></p>
  <div class="progress"><div id="barre"></div></div>`;
  const texte=document.getElementById("pourcentage");
  const barre=document.getElementById("barre");
