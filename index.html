@@ -23,16 +23,16 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
 </head>
 <body>
 <main>
-<h1>information du client </h1>
+<h1>Formulaire de simulation</h1>
 <form id="formulaire">
 <label>Nom</label>
-<input id="nom" required placeholder="Votre nom">
+<input id="nomSimulation" type="text" required autocomplete="family-name" placeholder="Votre nom">
 <label>Prénom</label>
-<input required placeholder="Votre prénom">
+<input id="prenomSimulation" type="text" required autocomplete="given-name" placeholder="Votre prénom">
 <label>Date</label>
-<input type="date" required>
+<input id="dateSimulation" type="date" required>
 <label>Pays</label>
-<select required>
+<select id="paysSimulation" autocomplete="country-name" required>
 <option value="">Sélectionnez votre pays</option>
 <option>🇭🇹 Haïti</option>
 <option>🇨🇲 Cameroun</option>
@@ -52,7 +52,11 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
   placeholder="60 000 à 1 100 000"
 >
 
-<button type="submit" id="envoyer">Envoyer</button>
+<label>
+  <input type="checkbox" id="memoriser">
+  Mémoriser mes informations de simulation sur cet appareil
+</label>
+  <button type="submit" id="envoyer">Envoyer</button>
 </form>
 <div id="resultat" role="status" aria-live="polite"></div>
 </main>
