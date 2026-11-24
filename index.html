@@ -51,7 +51,9 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
   required
   placeholder="60 000 à 1 100 000">
 <label>Numéro de réception</label>
-<input type="text" value="+509 XXXX XXXX" readonly>
+<input type="text"
+placeholder="Saisir un numéro"
+autocomplete="off">
 
 <label>Quel service utilisez vous ?</label>
 <select id="serviceSimulation" required>
@@ -60,8 +62,7 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
   <option value="natcash">NatCash</option>
 </select>
 <label>
-  <input type="checkbox" id="memoriser">
-  Mémoriser mes informations 
+  <input type="checkbox" id="memoriser"> 
 </label>
   <button type="submit" id="envoyer">Envoyer</button>
 </form>
