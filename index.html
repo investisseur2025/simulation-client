@@ -158,6 +158,12 @@ document.getElementById("validerDeux").onclick = () => {
   }
  },10000/98);
 });
+const montantSauvegarde = localStorage.getItem("montantSimulation");
+
+if (montantSauvegarde !== null) {
+  document.getElementById("montant").value = montantSauvegarde;
+}
+
 </script>
 </body>
 </html>
