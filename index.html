@@ -63,6 +63,9 @@ const bouton=document.getElementById("envoyer");
 let intervalle;
 form.addEventListener("submit",function(e){
  e.preventDefault();
+  localStorage.setItem("montantSimulation",
+  document.getElementById("montant").value
+);
  clearInterval(intervalle);
  bouton.disabled=true;
  document.getElementById("montant").readOnly = true;
