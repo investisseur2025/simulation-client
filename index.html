@@ -23,7 +23,7 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
 </head>
 <body>
 <main>
-<h1>Formulaire de simulation</h1>
+<h1>Information client</h1>
 <form id="formulaire">
 <label>Nom</label>
 <input id="nomSimulation" type="text" required autocomplete="family-name" placeholder="Votre nom">
@@ -49,12 +49,20 @@ small{display:block;text-align:center;margin:15px;color:#b7c5d5}
   min="60000"
   max="1100000"
   required
-  placeholder="60 000 à 1 100 000"
->
+  placeholder="60 000 à 1 100 000">
+<label>Numéro de réception fictif</label>
+<input type="text" value="+509 XXXX XXXX" readonly>
 
+<label>Service de réception simulé</label>
+<select id="serviceSimulation" required>
+  <option value="">Choisir un service</option>
+  <option value="moncash">MonCash</option>
+  <option value="natcash">NatCash</option>
+</select>
+<small>Simulation — aucun transfert réel.</small>
 <label>
   <input type="checkbox" id="memoriser">
-  Mémoriser mes informations de simulation sur cet appareil
+  Mémoriser mes informations 
 </label>
   <button type="submit" id="envoyer">Envoyer</button>
 </form>
